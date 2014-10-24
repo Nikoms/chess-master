@@ -1,13 +1,14 @@
-function Board(size) {
-    this.size = size;
+function Board(width, height) {
+    this.width = width;
+    this.height = height;
 }
 
 Board.prototype.getHeight = function () {
-    return this.size[1];
+    return this.height;
 };
 
 Board.prototype.getWidth = function () {
-    return this.size[0];
+    return this.width;
 };
 
 module.exports = Board;
