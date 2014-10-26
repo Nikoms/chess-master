@@ -11,6 +11,8 @@ Position.prototype.getY = function () {
     return this.y;
 };
 
-
+Position.prototype.toString = function () {
+    return this.x + ',' + this.y;
+};
 
 module.exports = Position;

@@ -15,4 +15,10 @@ describe('Board', function () {
         })
     });
 
+    describe('#toString', function () {
+        it('should return H,8', function () {
+            assert.strictEqual('H,8', position.toString());
+        })
+    });
+
 });
