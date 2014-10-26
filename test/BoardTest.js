@@ -1,5 +1,6 @@
 var assert = require("assert");
 var Board = require('../src/Board.js');
+var Position = require('../src/Position.js');
 
 describe('Board', function () {
     var board = new Board('H', 8);
@@ -21,6 +22,14 @@ describe('Board', function () {
     describe('#getSize', function () {
         it('should return 8XH = 64', function () {
             assert.strictEqual(64, board.getSize());
+        })
+    });
+    describe('#isPositionValid', function () {
+        it('should return true if it s in the board', function () {
+            assert.strictEqual(true, board.isPositionValid(new Position('A', 1)));
+            assert.strictEqual(false, board.isPositionValid(new Position('I', 1)));
+            assert.strictEqual(false, board.isPositionValid(new Position('A', 9)));
+            assert.strictEqual(false, board.isPositionValid(new Position('A', 0)));
         })
     });
 });
