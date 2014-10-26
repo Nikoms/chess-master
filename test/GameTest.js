@@ -10,7 +10,13 @@ describe('Game', function () {
     describe('#addPiece', function () {
         it('should return true if there is no piece on position', function () {
             assert.strictEqual(true, game.addPiece(new Position('C', 3), new King()));
-        })
-    });
+        });
 
+        it('should throw an error if there is already a piece at the position', function () {
+            assert.strictEqual(true, game.addPiece(new Position('D', 4), new King()));
+            assert.throws(function(){
+                game.addPiece(new Position('D', 4), new King())
+            }, Error, 'A piece already exists at position D,4');
+        });
+    });
 });
