@@ -14,7 +14,7 @@ Game.prototype.addPiece = function(position, piece){
         throw new InvalidPositionError(position);
     }
     this.pieces[position] = piece;
-    return true;
+    return this;
 };
 
 module.exports = Game;
