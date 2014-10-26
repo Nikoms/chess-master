@@ -3,6 +3,7 @@ var Board = require('../src/Board.js');
 var Position = require('../src/Position.js');
 var Game = require('../src/Game.js');
 var King = require('../src/Piece/King.js');
+var PositionAlreadyTakenError = require('../src/Error/PositionAlreadyTakenError');
 
 describe('Game', function () {
     var board = new Board('H', 8);
@@ -14,9 +15,16 @@ describe('Game', function () {
 
         it('should throw an error if there is already a piece at the position', function () {
             assert.strictEqual(true, game.addPiece(new Position('D', 4), new King()));
-            assert.throws(function(){
-                game.addPiece(new Position('D', 4), new King())
-            }, Error, 'A piece already exists at position D,4');
+            assert.throws(
+                function(){
+                    game.addPiece(new Position('D', 4), new King())
+                },
+                function(error) {
+                    if ((error instanceof PositionAlreadyTakenError) && error.position.toString() === 'D,4') {
+                        return true;
+                    }
+                }
+            );
         });
     });
 });
