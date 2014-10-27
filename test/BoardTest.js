@@ -27,6 +27,7 @@ describe('Board', function () {
     describe('#isPositionValid', function () {
         it('should return true if it s in the board', function () {
             assert.strictEqual(true, board.isPositionValid(new Position('A', 1)));
+            assert.strictEqual(true, board.isPositionValid(new Position('H', 8)));
             assert.strictEqual(false, board.isPositionValid(new Position('I', 1)));
             assert.strictEqual(false, board.isPositionValid(new Position('A', 9)));
         })
