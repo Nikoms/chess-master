@@ -29,7 +29,6 @@ describe('Board', function () {
             assert.strictEqual(true, board.isPositionValid(new Position('A', 1)));
             assert.strictEqual(false, board.isPositionValid(new Position('I', 1)));
             assert.strictEqual(false, board.isPositionValid(new Position('A', 9)));
-            assert.strictEqual(false, board.isPositionValid(new Position('A', 0)));
         })
     });
 });

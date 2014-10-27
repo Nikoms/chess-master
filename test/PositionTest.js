@@ -43,5 +43,18 @@ describe('Board', function () {
             });
         });
     });
-
+    describe('#addY', function () {
+        it('Addition Y', function () {
+            assert.strictEqual(9, position.addY(1).getY());
+            assert.strictEqual(10, position.addY(2).getY());
+            assert.strictEqual(7, position.addY(-1).getY());
+        });
+        it('should throw an exception when Y is "negative"', function () {
+            assert.throws(function () {
+                position.addY(-100);
+            }, function (error) {
+                return (error instanceof ImpossiblePositionError);
+            });
+        });
+    });
 });

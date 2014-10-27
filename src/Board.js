@@ -22,8 +22,7 @@ Board.prototype.getSize = function () {
 
 Board.prototype.isPositionValid = function (position) {
     return position.getX() < this.width
-        && position.getY() < this.height
-        && position.getY() > 0;
+        && position.getY() < this.height;
 };
 
 module.exports = Board;

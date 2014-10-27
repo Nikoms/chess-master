@@ -1,11 +1,11 @@
 var ImpossiblePositionError = require('./Error/ImpossiblePositionError.js');
 
-function Position(x, y) {
-    if(
-        'A'.charCodeAt(0) > x.charCodeAt(0)
-        || 'Z'.charCodeAt(0) < x.charCodeAt(0)
+function betweenAZ(x){
+    return 'A'.charCodeAt(0) <= x.charCodeAt(0) && 'Z'.charCodeAt(0) >= x.charCodeAt(0);
+}
 
-    ){
+function Position(x, y) {
+    if(!betweenAZ(x) || y < 1){
         throw new ImpossiblePositionError(x,y);
     }
 
@@ -30,7 +30,10 @@ Position.prototype.addX = function (addend) {
     var newXCharCode = this.x.charCodeAt(0) + addend;
     var newX = String.fromCharCode(newXCharCode);
     return new Position(newX, this.y);
+};
 
+Position.prototype.addY = function (addend) {
+    return new Position(this.x, this.y + addend);
 };
 
 module.exports = Position;

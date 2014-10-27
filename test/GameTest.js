@@ -29,10 +29,10 @@ describe('Game', function () {
         it('should throw an error if the position is not valid', function () {
             assert.throws(
                 function(){
-                    game.addPiece(new Position('A', 0), piece)
+                    game.addPiece(new Position('X', 1), piece)
                 },
                 function(error) {
-                    return (error instanceof InvalidPositionError) && error.position.toString() === 'A,0';
+                    return (error instanceof InvalidPositionError) && error.position.toString() === 'X,1';
                 }
             );
         });
