@@ -1,5 +1,6 @@
 var assert = require("assert");
 var Position = require('../src/Position.js');
+var ImpossiblePositionError = require('../src/Error/ImpossiblePositionError.js');
 
 describe('Board', function () {
     var position = new Position('H', 8);
@@ -19,6 +20,28 @@ describe('Board', function () {
         it('should return H,8', function () {
             assert.strictEqual('H,8', position.toString());
         })
+    });
+
+    describe('#addX', function () {
+        it('Addition X with a int', function () {
+            assert.strictEqual('I', position.addX(1).getX());
+            assert.strictEqual('J', position.addX(2).getX());
+            assert.strictEqual('G', position.addX(-1).getX());
+        });
+        it('should throw an exception when the letter before A but with a positive ASCII code', function () {
+            assert.throws(function () {
+                position.addX(-10);
+            }, function (error) {
+                return (error instanceof ImpossiblePositionError);
+            });
+        });
+        it('should throw an exception when the charcode is "negative"', function () {
+            assert.throws(function () {
+                position.addX(-100);
+            }, function (error) {
+                return (error instanceof ImpossiblePositionError);
+            });
+        });
     });
 
 });
