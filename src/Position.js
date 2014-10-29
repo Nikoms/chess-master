@@ -1,15 +1,4 @@
-var ImpossiblePositionError = require('./Error/ImpossiblePositionError.js');
-
-function betweenAZ(x){
-    return 'A'.charCodeAt(0) <= x.charCodeAt(0) && 'Z'.charCodeAt(0) >= x.charCodeAt(0);
-}
-
 function Position(x, y) {
-    if(!betweenAZ(x) || y < 1){
-        throw new ImpossiblePositionError(x,y);
-    }
-
-
     this.x = x;
     this.y = y;
 }
