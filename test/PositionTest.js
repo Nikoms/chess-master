@@ -2,7 +2,7 @@ var assert = require("assert");
 var Position = require('../src/Position.js');
 var ImpossiblePositionError = require('../src/Error/ImpossiblePositionError.js');
 
-describe('Board', function () {
+describe('Position', function () {
     var position = new Position('H', 8);
     describe('#getX', function () {
         it('should return H', function () {
