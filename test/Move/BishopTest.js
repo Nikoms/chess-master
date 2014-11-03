@@ -22,13 +22,13 @@ describe('Bishop', function () {
                 new Position('B', 2),
                 new Position('A', 1),
 
-                //LEFT TOP
-                new Position('D', 2),
-                new Position('E', 1),
-
-                ////RIGHT BOTTOM
+                ////LEFT TOP
                 new Position('B', 4),
                 new Position('A', 5),
+
+                //RIGHT BOTTOM
+                new Position('D', 2),
+                new Position('E', 1),
 
                 //RIGHT TOP
                 new Position('D', 4),

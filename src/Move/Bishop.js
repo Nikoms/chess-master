@@ -7,32 +7,16 @@ function Bishop(position) {
 Bishop.prototype.getPossibleMoves = function (game){
     var positions = [];
 
-    //Go bottom left
-    var newPosition = this.position.addX(-1).addY(-1);
-    while(game.board.isPositionValid(newPosition)){
-        positions.push(newPosition);
-        newPosition = newPosition.addX(-1).addY(-1);
-    }
+    var moves = [-1,1];
 
-    //Go bottom right
-    newPosition = this.position.addX(1).addY(-1);
-    while(game.board.isPositionValid(newPosition)){
-        positions.push(newPosition);
-        newPosition = newPosition.addX(1).addY(-1);
-    }
-
-    //Go top left
-    newPosition = this.position.addX(-1).addY(1);
-    while(game.board.isPositionValid(newPosition)){
-        positions.push(newPosition);
-        newPosition = newPosition.addX(-1).addY(1);
-    }
-
-    //Go top right
-    newPosition = this.position.addX(1).addY(1);
-    while(game.board.isPositionValid(newPosition)){
-        positions.push(newPosition);
-        newPosition = newPosition.addX(1).addY(1);
+    for(var x = 0 ; x < moves.length ; x++){
+        for(var y = 0 ; y < moves.length ; y++) {
+            var newPosition = this.position.addX(moves[x]).addY(moves[y]);
+            while(game.board.isPositionValid(newPosition)){
+                positions.push(newPosition);
+                newPosition = newPosition.addX(moves[x]).addY(moves[y]);
+            }
+        }
     }
     return positions;
 };
