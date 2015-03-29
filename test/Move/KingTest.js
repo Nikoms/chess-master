@@ -5,7 +5,7 @@ var Board = require('../../src/Board.js');
 var Game = require('../../src/Game.js');
 
 describe('King', function () {
-    var game = new Game(new Board('H', 8));
+    var game = new Game(new Board(8, 8));
 
     //5 #####
     //4 #XXX#
@@ -16,48 +16,48 @@ describe('King', function () {
 
     describe('#getPossibleMoves', function () {
         it('The king can go one step around', function () {
-            var middleKing = new King(new Position('C', 3));
+            var middleKing = new King(new Position(3, 3));
             assert.deepEqual([
-                new Position('B', 2),
-                new Position('C', 2),
-                new Position('D', 2),
+                new Position(2, 2),
+                new Position(3, 2),
+                new Position(4, 2),
 
-                new Position('B', 3),
-                new Position('D', 3),
+                new Position(2, 3),
+                new Position(4, 3),
 
-                new Position('B', 4),
-                new Position('C', 4),
-                new Position('D', 4)
+                new Position(2, 4),
+                new Position(3, 4),
+                new Position(4, 4)
             ],middleKing.getPossibleMoves(game));
         });
         it('The king in a corner of a board can only go in 3 directions', function () {
-            var cornerBottomLeftKing = new King(new Position('A', 1));
+            var cornerBottomLeftKing = new King(new Position(1, 1));
             assert.deepEqual([
-                new Position('B', 1),
-                new Position('A', 2),
-                new Position('B', 2)
+                new Position(2, 1),
+                new Position(1, 2),
+                new Position(2, 2)
             ],cornerBottomLeftKing.getPossibleMoves(game));
         });
         it('The king in an another corner of a board can only go in 3 directions', function () {
-            var cornerTopRightKing = new King(new Position('H', 8));
+            var cornerTopRightKing = new King(new Position(8, 8));
             assert.deepEqual([
-                new Position('G', 7),
-                new Position('H', 7),
-                new Position('G', 8)
+                new Position(7, 7),
+                new Position(8, 7),
+                new Position(7, 8)
             ],cornerTopRightKing.getPossibleMoves(game));
         });
 
 
         it('The king in the middle right of a board can only go in 5 directions', function () {
-            var middleRightKing = new King(new Position('H', 4));
+            var middleRightKing = new King(new Position(8, 4));
             assert.deepEqual([
-                new Position('G', 3),
-                new Position('H', 3),
+                new Position(7, 3),
+                new Position(8, 3),
 
-                new Position('G', 4),
+                new Position(7, 4),
 
-                new Position('G', 5),
-                new Position('H', 5)
+                new Position(7, 5),
+                new Position(8, 5)
             ],middleRightKing.getPossibleMoves(game));
         });
     });

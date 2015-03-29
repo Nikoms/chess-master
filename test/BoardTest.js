@@ -3,7 +3,7 @@ var Board = require('../src/Board.js');
 var Position = require('../src/Position.js');
 
 describe('Board', function () {
-    var board = new Board('H', 8);
+    var board = new Board(8, 8);
     describe('#getHeight', function () {
         it('should return 8', function () {
             assert.strictEqual(8, board.getHeight());
@@ -11,12 +11,7 @@ describe('Board', function () {
     });
     describe('#getWidth', function () {
         it('should return H', function () {
-            assert.strictEqual('H', board.getWidth());
-        })
-    });
-    describe('#getWidthToInt', function () {
-        it('should return 8 (because H = 8)', function () {
-            assert.strictEqual(8, board.getWidthToInt());
+            assert.strictEqual(8, board.getWidth());
         })
     });
     describe('#getSize', function () {
@@ -26,12 +21,12 @@ describe('Board', function () {
     });
     describe('#isPositionValid', function () {
         it('should return true if it s in the board', function () {
-            assert.strictEqual(true, board.isPositionValid(new Position('A', 1)));
-            assert.strictEqual(true, board.isPositionValid(new Position('C', 3)));
-            assert.strictEqual(true, board.isPositionValid(new Position('H', 8)));
-            assert.strictEqual(false, board.isPositionValid(new Position('I', 1)));
-            assert.strictEqual(false, board.isPositionValid(new Position('A', 9)));
-            assert.strictEqual(false, board.isPositionValid(new Position('A', 0)));
+            assert.strictEqual(true, board.isPositionValid(new Position(1, 1)));
+            assert.strictEqual(true, board.isPositionValid(new Position(3, 3)));
+            assert.strictEqual(true, board.isPositionValid(new Position(8, 8)));
+            assert.strictEqual(false, board.isPositionValid(new Position(9, 1)));
+            assert.strictEqual(false, board.isPositionValid(new Position(1, 9)));
+            assert.strictEqual(false, board.isPositionValid(new Position(1, 0)));
         })
     });
 });

@@ -11,19 +11,17 @@ Board.prototype.getWidth = function () {
     return this.width;
 };
 
-Board.prototype.getWidthToInt = function () {
-    return 1 + this.width.charCodeAt(0) - 'A'.charCodeAt(0);
-};
-
 
 Board.prototype.getSize = function () {
-    return this.getWidthToInt() * this.height;
+    //TODO: Maybe ask this to position? Or do we need this?
+    return this.width * this.height;
 };
 
 Board.prototype.isPositionValid = function (position) {
+    //TODO: Make a position:isBetween method
     return position.getX() <= this.width
         && position.getY() <= this.height
-        && position.getX() >= 'A'
+        && position.getX() >= 1
         && position.getY() >= 1;
 };
 

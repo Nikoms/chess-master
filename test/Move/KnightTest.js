@@ -5,7 +5,7 @@ var Board = require('../../src/Board.js');
 var Game = require('../../src/Game.js');
 
 describe('Knight', function () {
-    var game = new Game(new Board('H', 8));
+    var game = new Game(new Board(8, 8));
 
     //5 ##X#X#
     //4 #X###X
@@ -16,31 +16,31 @@ describe('Knight', function () {
 
     describe('#getPossibleMoves', function () {
         it('The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally.', function () {
-            var knight = new Knight(new Position('D', 3));
+            var knight = new Knight(new Position(4, 3));
             assert.deepEqual([
                 //Bottom left
-                new Position('B', 2),
-                new Position('C', 1),
+                new Position(2, 2),
+                new Position(3, 1),
 
                 //Bottom right
-                new Position('F', 2),
-                new Position('E', 1),
+                new Position(6, 2),
+                new Position(5, 1),
 
                 //Top left
-                new Position('C', 5),
-                new Position('B', 4),
+                new Position(3, 5),
+                new Position(2, 4),
 
                 //Top right
-                new Position('E', 5),
-                new Position('F', 4)
+                new Position(5, 5),
+                new Position(6, 4)
             ],knight.getPossibleMoves(game));
         });
 
         it('In the corner, the knight can only go in 2 square', function () {
-            var knight = new Knight(new Position('A', 1));
+            var knight = new Knight(new Position(1, 1));
             assert.deepEqual([
-                new Position('B', 3),
-                new Position('C', 2)
+                new Position(2, 3),
+                new Position(3, 2)
             ],knight.getPossibleMoves(game));
         });
     });

@@ -16,9 +16,7 @@ Position.prototype.toString = function () {
 };
 
 Position.prototype.addX = function (addend) {
-    var newXCharCode = this.x.charCodeAt(0) + addend;
-    var newX = String.fromCharCode(newXCharCode);
-    return new Position(newX, this.y);
+    return new Position(this.x + addend, this.y);
 };
 
 Position.prototype.addY = function (addend) {
