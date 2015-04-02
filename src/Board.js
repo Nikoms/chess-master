@@ -3,11 +3,7 @@ function Board(positionRange) {
 }
 
 Board.prototype.isPositionValid = function (position) {
-    //TODO: make it in PositionRange
-    return position.getX() <= this.positionRange.getStopPosition().getX()
-        && position.getY() <= this.positionRange.getStopPosition().getY()
-        && position.getX() >= 0
-        && position.getY() >= 0;
+    return this.positionRange.isPositionValid(position);
 };
 
 module.exports = Board;

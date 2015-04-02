@@ -3,12 +3,11 @@ function PositionRange(startPosition, stopPosition) {
     this.stopPosition = stopPosition;
 }
 
-PositionRange.prototype.getStartPosition = function () {
-    return this.startPosition;
-};
-
-PositionRange.prototype.getStopPosition = function () {
-    return this.stopPosition;
+PositionRange.prototype.isPositionValid = function (position) {
+    return position.getX() <= this.stopPosition.getX()
+        && position.getY() <= this.stopPosition.getY()
+        && position.getX() >= this.startPosition.getX()
+        && position.getY() >= this.startPosition.getY();
 };
 
 module.exports = PositionRange;
