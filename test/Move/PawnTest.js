@@ -5,30 +5,30 @@ var Board = require('../../src/Board.js');
 var Game = require('../../src/Game.js');
 
 describe('Pawn', function () {
-    var game = new Game(new Board(8, 8));
+    var game = new Game(new Board(7,7));
 
-    //5 #####
-    //4 ##X##
-    //3 ##0##
-    //2 #####
+    //4 #####
+    //3 ##X##
+    //2 ##0##
     //1 #####
-    //  ABCDE
+    //0 #####
+    //  01234
 
     describe('#getPossibleMoves', function () {
         it('The pawn can go one step around', function () {
-            var middlePawn = new Pawn(new Position(3, 3));
+            var middlePawn = new Pawn(new Position(2,2));
             assert.deepEqual([
-                new Position(3, 4)
+                new Position(2,3)
             ],middlePawn.getPossibleMoves(game));
         });
         it('The pawn in a corner of a board can only go in 3 directions', function () {
-            var cornerBottomLeftPawn = new Pawn(new Position(1, 1));
+            var cornerBottomLeftPawn = new Pawn(new Position(0,0));
             assert.deepEqual([
-                new Position(1, 2)
+                new Position(0,1)
             ],cornerBottomLeftPawn.getPossibleMoves(game));
         });
         it('The pawn in an another corner of a board can only go in 3 directions', function () {
-            var cornerTopRightPawn = new Pawn(new Position(8, 8));
+            var cornerTopRightPawn = new Pawn(new Position(7,7));
             assert.deepEqual([],cornerTopRightPawn.getPossibleMoves(game));
         });
     });

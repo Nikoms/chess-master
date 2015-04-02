@@ -5,50 +5,50 @@ var Board = require('../../src/Board.js');
 var Game = require('../../src/Game.js');
 
 describe('Bishop', function () {
-    var game = new Game(new Board(8, 8));
+    var game = new Game(new Board(7,7));
 
-    //5 X###X
-    //4 #X#X#
-    //3 ##0##
-    //2 #X#X#
-    //1 X###X
-    //  12345
+    //4 X###X
+    //3 #X#X#
+    //2 ##0##
+    //1 #X#X#
+    //0 X###X
+    //  01234
 
     describe('#getPossibleMoves', function () {
         it('The bishop has no restrictions in distance for each move, but is limited to diagonal movement', function () {
-            var bishop = new Bishop(new Position(3, 3));
+            var bishop = new Bishop(new Position(2,2));
             assert.deepEqual([
                 //LEFT BOTTOM
-                new Position(2, 2),
                 new Position(1, 1),
+                new Position(0, 0),
 
                 ////LEFT TOP
-                new Position(2, 4),
-                new Position(1, 5),
+                new Position(1, 3),
+                new Position(0, 4),
 
                 //RIGHT BOTTOM
-                new Position(4, 2),
-                new Position(5, 1),
+                new Position(3, 1),
+                new Position(4, 0),
 
                 //RIGHT TOP
-                new Position(4, 4),
-                new Position(5, 5),
-                new Position(6, 6),
-                new Position(7, 7),
-                new Position(8, 8)
-            ],bishop.getPossibleMoves(game));
-        });
-
-        it('In the corner, the bishop can only go in one direction', function () {
-            var bishop = new Bishop(new Position(1, 1));
-            assert.deepEqual([
-                new Position(2, 2),
                 new Position(3, 3),
                 new Position(4, 4),
                 new Position(5, 5),
                 new Position(6, 6),
-                new Position(7, 7),
-                new Position(8, 8)
+                new Position(7, 7)
+            ],bishop.getPossibleMoves(game), bishop.getPossibleMoves(game));
+        });
+
+        it('In the corner, the bishop can only go in one direction', function () {
+            var bishop = new Bishop(new Position(0,0));
+            assert.deepEqual([
+                new Position(1,1),
+                new Position(2,2),
+                new Position(3,3),
+                new Position(4,4),
+                new Position(5,5),
+                new Position(6,6),
+                new Position(7,7)
             ],bishop.getPossibleMoves(game));
         });
 

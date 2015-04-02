@@ -7,7 +7,7 @@ var PositionAlreadyTakenError = require('../src/Error/PositionAlreadyTakenError'
 var InvalidPositionError = require('../src/Error/InvalidPositionError');
 
 describe('Game', function () {
-    var board = new Board(8, 8);
+    var board = new Board(7,7);
     var game = new Game(board);
     var piece = new Piece('King','White');
     describe('#addPiece', function () {
@@ -29,10 +29,10 @@ describe('Game', function () {
         it('should throw an error if the position is not valid', function () {
             assert.throws(
                 function(){
-                    game.addPiece(new Position(9, 1), piece)
+                    game.addPiece(new Position(8, 1), piece)
                 },
                 function(error) {
-                    return (error instanceof InvalidPositionError) && error.position.toString() === '9,1';
+                    return (error instanceof InvalidPositionError) && error.position.toString() === '8,1';
                 }
             );
         });
