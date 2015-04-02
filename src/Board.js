@@ -1,20 +1,11 @@
-function Board(width, height) {
-    this.width = width;
-    this.height = height;
+function Board(positionRange) {
+    this.positionRange = positionRange;
 }
 
-Board.prototype.getHeight = function () {
-    return this.height;
-};
-
-Board.prototype.getWidth = function () {
-    return this.width;
-};
-
 Board.prototype.isPositionValid = function (position) {
-    //TODO: Make a position:isBetween method
-    return position.getX() <= this.width
-        && position.getY() <= this.height
+    //TODO: make it in PositionRange
+    return position.getX() <= this.positionRange.getStopPosition().getX()
+        && position.getY() <= this.positionRange.getStopPosition().getY()
         && position.getX() >= 0
         && position.getY() >= 0;
 };

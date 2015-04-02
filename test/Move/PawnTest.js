@@ -1,11 +1,12 @@
 var assert = require("assert");
 var Pawn = require('../../src/Move/Pawn.js');
 var Position = require('../../src/Position.js');
+var PositionRange = require('../../src/PositionRange.js');
 var Board = require('../../src/Board.js');
 var Game = require('../../src/Game.js');
 
 describe('Pawn', function () {
-    var game = new Game(new Board(7,7));
+    var game = new Game(new Board(new PositionRange(new Position(0,0), new Position(7,7))));
 
     //4 #####
     //3 ##X##

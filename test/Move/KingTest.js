@@ -1,11 +1,12 @@
 var assert = require("assert");
 var King = require('../../src/Move/King.js');
 var Position = require('../../src/Position.js');
+var PositionRange = require('../../src/PositionRange.js');
 var Board = require('../../src/Board.js');
 var Game = require('../../src/Game.js');
 
 describe('King', function () {
-    var game = new Game(new Board(7,7));
+    var game = new Game(new Board(new PositionRange(new Position(0,0), new Position(7,7))));
 
     //4 #####
     //3 #XXX#

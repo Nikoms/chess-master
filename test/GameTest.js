@@ -1,13 +1,14 @@
 var assert = require("assert");
 var Board = require('../src/Board.js');
 var Position = require('../src/Position.js');
+var PositionRange = require('../src/PositionRange.js');
 var Game = require('../src/Game.js');
 var Piece = require('../src/Piece');
 var PositionAlreadyTakenError = require('../src/Error/PositionAlreadyTakenError');
 var InvalidPositionError = require('../src/Error/InvalidPositionError');
 
 describe('Game', function () {
-    var board = new Board(7,7);
+    var board = new Board(new PositionRange(new Position(0,0), new Position(7,7)));
     var game = new Game(board);
     var piece = new Piece('King','White');
     describe('#addPiece', function () {
