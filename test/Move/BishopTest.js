@@ -1,7 +1,4 @@
 var Bishop = require('../../src/Move/Bishop.js');
-var Position = require('../../src/Position.js');
-var Board = require('../../src/Board.js');
-var Game = require('../../src/Game.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
 
 describe('Bishop', function () {
@@ -18,9 +15,9 @@ describe('Bishop', function () {
                 '#X#X####',
                 'X###X###'];
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = new Game(new Board(boardMoveTester.getPositionRange()));
+            var game = boardMoveTester.getGame();
 
-            var bishop = new Bishop(new Position(2, 2));
+            var bishop = new Bishop(boardMoveTester.getMasterPiecePosition());
             boardMoveTester.assertPossibleMoves(bishop.getPossibleMoves(game));
         });
 
@@ -35,9 +32,9 @@ describe('Bishop', function () {
                 '#X######',
                 '0#######'];
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = new Game(new Board(boardMoveTester.getPositionRange()));
+            var game = boardMoveTester.getGame();
 
-            var bishop = new Bishop(new Position(0, 0));
+            var bishop = new Bishop(boardMoveTester.getMasterPiecePosition());
             boardMoveTester.assertPossibleMoves(bishop.getPossibleMoves(game));
         });
 
