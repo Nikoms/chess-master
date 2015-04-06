@@ -13,11 +13,7 @@ describe('Queen', function () {
                 'XX0XX',
                 '#XXX#',
                 'X#X#X'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(queen.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
-
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(queen);
         });
 
         it('In the corner, the queen has bishop and rook moves.', function () {
@@ -27,11 +23,7 @@ describe('Queen', function () {
                 'X#X##',
                 'XX###',
                 '0XXXX'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(queen.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
-
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(queen);
         });
 
     });

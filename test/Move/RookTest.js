@@ -11,10 +11,7 @@ describe('Rook', function () {
                 'XX0XX',
                 '##X##',
                 '##X##'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(rook.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(rook);
         });
     });
 });

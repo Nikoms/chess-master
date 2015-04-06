@@ -38,15 +38,18 @@ BoardMoveTester.prototype.getPositionsRepresentation = function (positions) {
     return representation;
 };
 
-BoardMoveTester.prototype.assertPossibleMoves = function (possibleMoves) {
-    var errorMessage = ['Expected : ', "\n", this.movesRepresentation.join("\n"), "\n", '. Received : ', "\n", this.getPositionsRepresentation(possibleMoves).join("\n")];
-    var expectedMoves = this.getPossibleMoves();
-    assert.equal(expectedMoves.length, possibleMoves.length, errorMessage.join(''));
+BoardMoveTester.prototype.assertPossibleMoves = function (piece) {
 
-    for (var i = 0; i < possibleMoves.length; i++) {
+    var calculatedPossibleMoves = piece.getPossibleMoves(this.getGame(), this.getMasterPiecePosition());
+
+    var errorMessage = ['Expected : ', "\n", this.movesRepresentation.join("\n"), "\n", '. Received : ', "\n", this.getPositionsRepresentation(calculatedPossibleMoves).join("\n")];
+    var expectedMoves = this.getPossibleMoves();
+    assert.equal(expectedMoves.length, calculatedPossibleMoves.length, errorMessage.join(''));
+
+    for (var i = 0; i < calculatedPossibleMoves.length; i++) {
         var positionFounded = false;
         for (var j = 0; j < expectedMoves.length; j++) {
-            if (possibleMoves[i].toString() === expectedMoves[j].toString()) {
+            if (calculatedPossibleMoves[i].toString() === expectedMoves[j].toString()) {
                 positionFounded = true;
             }
         }

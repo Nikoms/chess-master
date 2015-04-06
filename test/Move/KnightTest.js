@@ -13,11 +13,7 @@ describe('Knight', function () {
                 '###0##',
                 '#X###X',
                 '##X#X#'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(knight.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
-
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(knight);
         });
 
         it('In the corner, the knight can only go in 2 square', function () {
@@ -26,10 +22,7 @@ describe('Knight', function () {
                 '#X#',
                 '##X',
                 '0##'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(knight.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(knight);
 
         });
     });

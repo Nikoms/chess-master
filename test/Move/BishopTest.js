@@ -15,10 +15,7 @@ describe('Bishop', function () {
                 '##0#####',
                 '#X#X####',
                 'X###X###'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(bishop.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(bishop);
         });
 
         it('In the corner, the bishop can only go in one direction', function () {
@@ -31,10 +28,7 @@ describe('Bishop', function () {
                 '##X#####',
                 '#X######',
                 '0#######'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(bishop.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(bishop);
         });
 
     });

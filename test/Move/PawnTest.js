@@ -12,10 +12,7 @@ describe('Pawn', function () {
                 '##0##',
                 '#####',
                 '#####'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
         });
         it('The pawn in a corner of a board can only go in 1 direction', function () {
 
@@ -23,20 +20,14 @@ describe('Pawn', function () {
                 '###',
                 'X##',
                 '0##'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
         });
 
         it('The pawn in a top position cant go anywhere', function () {
             var moveRepresentation = [
                 '0##',
                 '###'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
         });
     });
 });

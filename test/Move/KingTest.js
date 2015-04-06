@@ -12,11 +12,7 @@ describe('King', function () {
             '#X0X#',
             '#XXX#',
             '#####'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
-
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
         });
 
         it('The king in a corner of a board can only go in 3 directions', function () {
@@ -26,11 +22,7 @@ describe('King', function () {
                 '#####',
                 'XX###',
                 '0X###'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
-
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
         });
 
         it('The king in an another corner of a board can only go in 3 directions', function () {
@@ -40,11 +32,7 @@ describe('King', function () {
                 '###XX',
                 '#####',
                 '#####'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
-
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
         });
 
         it('The king in the middle right of a board can only go in 5 directions', function () {
@@ -55,10 +43,7 @@ describe('King', function () {
                 '###X0',
                 '###XX',
                 '#####'];
-            var boardMoveTester = new BoardMoveTester(moveRepresentation);
-            var game = boardMoveTester.getGame();
-
-            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
         });
     });
 });
