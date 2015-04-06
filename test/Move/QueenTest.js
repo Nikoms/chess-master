@@ -2,6 +2,7 @@ var Queen = require('../../src/Move/Queen.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
 
 describe('Queen', function () {
+    var queen = new Queen();
 
     describe('#getPossibleMoves', function () {
         it('The queen has bishop and rook moves.', function () {
@@ -15,8 +16,7 @@ describe('Queen', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var queen = new Queen(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(queen.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(queen.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
 
         });
 
@@ -30,8 +30,7 @@ describe('Queen', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var queen = new Queen(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(queen.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(queen.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
 
         });
 

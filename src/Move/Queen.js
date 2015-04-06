@@ -2,13 +2,12 @@ var Position = require('../Position.js');
 var Rook = require('./Rook.js');
 var Bishop = require('./Bishop.js');
 
-function Queen(position) {
-    this.position = position;
+function Queen() {
 }
 
-Queen.prototype.getPossibleMoves = function (game) {
-    var bishopMoves = new Bishop(this.position).getPossibleMoves(game);
-    var rookMoves = new Rook(this.position).getPossibleMoves(game);
+Queen.prototype.getPossibleMoves = function (game, currentPosition) {
+    var bishopMoves = new Bishop().getPossibleMoves(game, currentPosition);
+    var rookMoves = new Rook().getPossibleMoves(game, currentPosition);
 
     return bishopMoves.concat(rookMoves);
 };

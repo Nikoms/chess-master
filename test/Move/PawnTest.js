@@ -2,6 +2,7 @@ var Pawn = require('../../src/Move/Pawn.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
 
 describe('Pawn', function () {
+    var pawn = new Pawn();
 
     describe('#getPossibleMoves', function () {
         it('The pawn can go one step around', function () {
@@ -14,8 +15,7 @@ describe('Pawn', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var pawn = new Pawn(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
         });
         it('The pawn in a corner of a board can only go in 1 direction', function () {
 
@@ -26,8 +26,7 @@ describe('Pawn', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var pawn = new Pawn(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
         });
 
         it('The pawn in a top position cant go anywhere', function () {
@@ -37,8 +36,7 @@ describe('Pawn', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var pawn = new Pawn(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(pawn.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
         });
     });
 });

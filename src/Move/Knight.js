@@ -9,28 +9,27 @@ function addPositionIfValid(positions, currentPosition, addendX, addendY, board)
 
 
 
-function Knight(position) {
-    this.position = position;
+function Knight() {
 }
 
-Knight.prototype.getPossibleMoves = function (game){
+Knight.prototype.getPossibleMoves = function (game, currentPosition){
     var positions = [];
 
     //Bottom left
-    addPositionIfValid(positions, this.position, -2, -1, game.board);
-    addPositionIfValid(positions, this.position, -1, -2, game.board);
+    addPositionIfValid(positions, currentPosition, -2, -1, game.board);
+    addPositionIfValid(positions, currentPosition, -1, -2, game.board);
 
     //Bottom right
-    addPositionIfValid(positions, this.position, 2, -1, game.board);
-    addPositionIfValid(positions, this.position, 1, -2, game.board);
+    addPositionIfValid(positions, currentPosition, 2, -1, game.board);
+    addPositionIfValid(positions, currentPosition, 1, -2, game.board);
 
     //Top left
-    addPositionIfValid(positions, this.position, -1, 2, game.board);
-    addPositionIfValid(positions, this.position, -2, 1, game.board);
+    addPositionIfValid(positions, currentPosition, -1, 2, game.board);
+    addPositionIfValid(positions, currentPosition, -2, 1, game.board);
 
     //Top right
-    addPositionIfValid(positions, this.position, 1, 2, game.board);
-    addPositionIfValid(positions, this.position, 2, 1, game.board);
+    addPositionIfValid(positions, currentPosition, 1, 2, game.board);
+    addPositionIfValid(positions, currentPosition, 2, 1, game.board);
 
     return positions;
 };

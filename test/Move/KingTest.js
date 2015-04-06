@@ -2,6 +2,7 @@ var King = require('../../src/Move/King.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
 
 describe('King', function () {
+    var king = new King();
     describe('#getPossibleMoves', function () {
         it('The king can go one step around', function () {
 
@@ -14,8 +15,7 @@ describe('King', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var king = new King(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
 
         });
 
@@ -29,8 +29,7 @@ describe('King', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var king = new King(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
 
         });
 
@@ -44,8 +43,7 @@ describe('King', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var king = new King(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
 
         });
 
@@ -60,8 +58,7 @@ describe('King', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var king = new King(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(king.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
         });
     });
 });

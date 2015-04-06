@@ -2,6 +2,7 @@ var Rook = require('../../src/Move/Rook.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
 
 describe('Rook', function () {
+    var rook = new Rook();
     describe('#getPossibleMoves', function () {
         it('The rook moves horizontally or vertically', function () {
             var moveRepresentation = [
@@ -13,8 +14,7 @@ describe('Rook', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var rook = new Rook(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(rook.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(rook.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
         });
     });
 });

@@ -1,13 +1,12 @@
 var Position = require('../Position.js');
 
-function Pawn(position) {
-    this.position = position;
+function Pawn() {
 }
 
-Pawn.prototype.getPossibleMoves = function (game) {
+Pawn.prototype.getPossibleMoves = function (game, currentPosition) {
     var positions = [];
 
-    var upPosition = this.position.addY(1);
+    var upPosition = currentPosition.addY(1);
     if (game.board.isPositionValid(upPosition)) {
         positions.push(upPosition);
     }

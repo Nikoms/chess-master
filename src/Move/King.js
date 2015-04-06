@@ -12,22 +12,21 @@ function addPositionIfValid(positions, currentPosition, addendX, addendY, board)
     }
 }
 
-function King(position) {
-    this.position = position;
+function King() {
 }
 
-King.prototype.getPossibleMoves = function (game){
+King.prototype.getPossibleMoves = function (game, currentPosition){
     var positions = [];
-    addPositionIfValid(positions, this.position, -1, -1, game.board);
-    addPositionIfValid(positions, this.position, 0, -1, game.board);
-    addPositionIfValid(positions, this.position, +1, -1, game.board);
+    addPositionIfValid(positions, currentPosition, -1, -1, game.board);
+    addPositionIfValid(positions, currentPosition, 0, -1, game.board);
+    addPositionIfValid(positions, currentPosition, +1, -1, game.board);
 
-    addPositionIfValid(positions, this.position, -1, 0, game.board);
-    addPositionIfValid(positions, this.position, +1, 0, game.board);
+    addPositionIfValid(positions, currentPosition, -1, 0, game.board);
+    addPositionIfValid(positions, currentPosition, +1, 0, game.board);
 
-    addPositionIfValid(positions, this.position, -1, +1, game.board);
-    addPositionIfValid(positions, this.position, 0, +1, game.board);
-    addPositionIfValid(positions, this.position, +1, +1, game.board);
+    addPositionIfValid(positions, currentPosition, -1, +1, game.board);
+    addPositionIfValid(positions, currentPosition, 0, +1, game.board);
+    addPositionIfValid(positions, currentPosition, +1, +1, game.board);
 
     return positions;
 };

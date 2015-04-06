@@ -2,6 +2,7 @@ var Knight = require('../../src/Move/Knight.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
 
 describe('Knight', function () {
+    var knight = new Knight();
 
     describe('#getPossibleMoves', function () {
         it('The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally.', function () {
@@ -15,8 +16,7 @@ describe('Knight', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var knight = new Knight(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(knight.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(knight.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
 
         });
 
@@ -29,8 +29,7 @@ describe('Knight', function () {
             var boardMoveTester = new BoardMoveTester(moveRepresentation);
             var game = boardMoveTester.getGame();
 
-            var knight = new Knight(boardMoveTester.getMasterPiecePosition());
-            boardMoveTester.assertPossibleMoves(knight.getPossibleMoves(game));
+            boardMoveTester.assertPossibleMoves(knight.getPossibleMoves(game, boardMoveTester.getMasterPiecePosition()));
 
         });
     });
