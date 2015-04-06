@@ -17,7 +17,7 @@ describe('Position', function () {
 
     describe('#toString', function () {
         it('should return 1,1', function () {
-            assert.strictEqual('1,1', position.toString());
+            assert.strictEqual('[1,1]', position.toString());
         })
     });
 

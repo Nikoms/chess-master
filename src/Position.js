@@ -12,7 +12,7 @@ Position.prototype.getY = function () {
 };
 
 Position.prototype.toString = function () {
-    return this.x + ',' + this.y;
+    return '['+this.x + ',' + this.y+']';
 };
 
 Position.prototype.addX = function (addend) {

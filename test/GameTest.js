@@ -23,7 +23,7 @@ describe('Game', function () {
                     game.addPiece(new Position(4, 4), piece)
                 },
                 function(error) {
-                    return (error instanceof PositionAlreadyTakenError) && error.position.toString() === '4,4';
+                    return (error instanceof PositionAlreadyTakenError) && error.position.toString() === '[4,4]';
                 }
             );
         });
@@ -33,7 +33,7 @@ describe('Game', function () {
                     game.addPiece(new Position(8, 1), piece)
                 },
                 function(error) {
-                    return (error instanceof InvalidPositionError) && error.position.toString() === '8,1';
+                    return (error instanceof InvalidPositionError) && error.position.toString() === '[8,1]';
                 }
             );
         });
