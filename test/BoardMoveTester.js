@@ -17,10 +17,31 @@ function BoardMoveTester(movesRepresentation) {
     this.width = movesRepresentation[0].length;
 }
 
+BoardMoveTester.prototype.getEmptyBoardRepresentation = function () {
+    var boardRepresentation = [];
+    for (var height = 0; height < this.height; height++) {
+        boardRepresentation[height] = '';
+        for (var width = 0; width < this.width; width++) {
+            boardRepresentation[height] += '#';
+        }
+    }
+    return boardRepresentation;
+};
+
+BoardMoveTester.prototype.getPositionsRepresentation = function (positions) {
+    var representation = this.getEmptyBoardRepresentation();
+    positions.forEach(function (position) {
+        var lineRepresentation = representation[position.getY()];
+        representation[position.getY()] = lineRepresentation.substr(0, position.getX()) + 'X' + lineRepresentation.substr(position.getX() + 1);
+    });
+
+    return representation;
+};
+
 BoardMoveTester.prototype.assertPossibleMoves = function (possibleMoves) {
-    var errorMessage = ['Expected : ', this.getPossibleMoves(), '. Received : ', possibleMoves];
+    var errorMessage = ['Expected : ', "\n", this.movesRepresentation.join("\n"), "\n", '. Received : ', "\n", this.getPositionsRepresentation(possibleMoves).join("\n")];
     var expectedMoves = this.getPossibleMoves();
-    assert.equal(expectedMoves.length, possibleMoves.length, errorMessage);
+    assert.equal(expectedMoves.length, possibleMoves.length, errorMessage.join(''));
 
     for (var i = 0; i < possibleMoves.length; i++) {
         var positionFounded = false;
@@ -29,20 +50,20 @@ BoardMoveTester.prototype.assertPossibleMoves = function (possibleMoves) {
                 positionFounded = true;
             }
         }
-        assert.equal(true, positionFounded, possibleMoves[i] + ' was not found');
+        assert.equal(true, positionFounded, errorMessage);
     }
 };
 
 //Because the first line is not 0, but "7" for example.
-BoardMoveTester.prototype.convertHeightToPosition = function(height){
-  return Math.abs(height - (this.height - 1));
+BoardMoveTester.prototype.convertHeightToPosition = function (height) {
+    return Math.abs(height - (this.height - 1));
 };
 
-BoardMoveTester.prototype.getMasterPiecePosition = function(){
+BoardMoveTester.prototype.getMasterPiecePosition = function () {
     for (var height = 0; height < this.height; height++) {
         for (var width = 0; width < this.width; width++) {
             var currentCharacter = this.movesRepresentation[height][width];
-            if (currentCharacter === '0'){
+            if (currentCharacter === '0') {
                 return new Position(width, this.convertHeightToPosition(height));
             }
         }
@@ -66,8 +87,8 @@ BoardMoveTester.prototype.getPositionRange = function () {
     return new PositionRange(new Position(0, 0), new Position(this.width - 1, this.height - 1));
 };
 
-BoardMoveTester.prototype.getGame = function() {
-  return new Game(new Board(this.getPositionRange()));
+BoardMoveTester.prototype.getGame = function () {
+    return new Game(new Board(this.getPositionRange()));
 };
 
 
