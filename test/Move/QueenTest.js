@@ -26,5 +26,16 @@ describe('Queen', function () {
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(queen);
         });
 
+        it('The queen is blocked by other pieces.', function () {
+
+            var moveRepresentation = [
+                'X###X',
+                '#XPX#',
+                'XX0P#',
+                '#XXX#',
+                'X#X#P'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(queen);
+        });
+
     });
 });
