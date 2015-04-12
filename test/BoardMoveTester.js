@@ -33,11 +33,17 @@ BoardMoveTester.prototype.getPositionsRepresentation = function (positions) {
     var representation = this.getEmptyBoardRepresentation();
     var that = this; //TODO: Use bind
     positions.forEach(function (position) {
-        var verticalPosition = that.convertHeightToPosition(position.getY());
-        var lineRepresentation = representation[verticalPosition];
-        representation[verticalPosition] = lineRepresentation.substr(0, position.getX()) + 'X' + lineRepresentation.substr(position.getX() + 1);
+        representation = that.addRepresentationValueAtPosition(representation, 'X', position);
     });
 
+    representation = this.addRepresentationValueAtPosition(representation, '0', this.getMasterPiecePosition());
+    return representation;
+};
+
+BoardMoveTester.prototype.addRepresentationValueAtPosition = function (representation, value, position) {
+    var verticalPosition = this.convertHeightToPosition(position.getY());
+    var lineRepresentation = representation[verticalPosition];
+    representation[verticalPosition] = lineRepresentation.substr(0, position.getX()) + value + lineRepresentation.substr(position.getX() + 1);
     return representation;
 };
 
