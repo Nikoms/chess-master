@@ -31,10 +31,9 @@ BoardMoveTester.prototype.getEmptyBoardRepresentation = function () {
 
 BoardMoveTester.prototype.getPositionsRepresentation = function (positions) {
     var representation = this.getEmptyBoardRepresentation();
-    var that = this; //TODO: Use bind
     positions.forEach(function (position) {
-        representation = that.addRepresentationValueAtPosition(representation, 'X', position);
-    });
+        representation = this.addRepresentationValueAtPosition(representation, 'X', position);
+    }, this);
 
     representation = this.addRepresentationValueAtPosition(representation, '0', this.getMasterPiecePosition());
     return representation;
