@@ -45,5 +45,16 @@ describe('King', function () {
                 '#####'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
         });
+
+        it('The king is blocked by other pieces while moving', function () {
+
+            var moveRepresentation = [
+                '#####',
+                '#XXP#',
+                '#X0P#',
+                '#PPX#',
+                '#####'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
+        });
     });
 });
