@@ -31,3 +31,20 @@ up : black
 * 2 knights, alias le cavalier
 * 2 bishops, alias le fou
 * 8 pawns
+
+### Done
+
+* Basic moves
+* A piece (except the knight) stops before another piece
+
+
+### Todo
+
+* A piece has a color
+* A piece can take an enemy piece
+* Position is Hx8 not 7x7
+* Double move at start for pawn
+* The castling
+* En passant
+* Pawn promotion
+* Drawn
