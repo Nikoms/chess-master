@@ -25,5 +25,16 @@ describe('Knight', function () {
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(knight);
 
         });
+
+        it('The knight can jump over a piece (this test is not optional).', function () {
+
+            var moveRepresentation = [
+                '##X#X#',
+                '#XPPPX',
+                '##P0P#',
+                '#XPPPX',
+                '##X#X#'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(knight);
+        });
     });
 });
