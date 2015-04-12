@@ -7,7 +7,7 @@ function Game(board) {
 }
 
 Game.prototype.addPiece = function(position, piece){
-    if(this.pieces[position]){
+    if(!this.isPositionFree(position)){
         throw new PositionAlreadyTakenError(position);
     }
     if(!this.board.isPositionValid(position)){
@@ -15,6 +15,10 @@ Game.prototype.addPiece = function(position, piece){
     }
     this.pieces[position] = piece;
     return this;
+};
+
+Game.prototype.isPositionFree = function(position){
+    return ! (position in this.pieces);
 };
 
 module.exports = Game;
