@@ -7,7 +7,7 @@ Pawn.prototype.getPossibleMoves = function (game, currentPosition) {
     var positions = [];
 
     var upPosition = currentPosition.addY(1);
-    if (game.board.isPositionValid(upPosition)) {
+    if (game.board.isPositionValid(upPosition) && game.isPositionFree(upPosition)) {
         positions.push(upPosition);
     }
 

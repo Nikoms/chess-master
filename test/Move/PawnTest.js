@@ -29,5 +29,14 @@ describe('Pawn', function () {
                 '###'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
         });
+        it('The pawn is blocked by other pieces', function () {
+            var moveRepresentation = [
+                '#####',
+                '##P##',
+                '##0##',
+                '#####',
+                '#####'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
+        });
     });
 });
