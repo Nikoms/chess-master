@@ -111,8 +111,8 @@ BoardMoveTester.prototype.getPositionRange = function () {
 BoardMoveTester.prototype.getGame = function () {
     var game = new Game(new Board(this.getPositionRange()));
     var otherPiecesPositions = this.getOtherPiecesPositions();
-    for (var key in otherPiecesPositions) {
-        game.addPiece(otherPiecesPositions[key], new Pawn());
+    for (var i = 0; i < otherPiecesPositions.length; i++) {
+        game.addPiece(otherPiecesPositions[i], new Pawn());
     }
     return game;
 };
