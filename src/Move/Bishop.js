@@ -11,7 +11,7 @@ Bishop.prototype.getPossibleMoves = function (game, currentPosition){
     for(var x = 0 ; x < moves.length ; x++){
         for(var y = 0 ; y < moves.length ; y++) {
             var newPosition = currentPosition.addX(moves[x]).addY(moves[y]);
-            while(game.board.isPositionValid(newPosition)){
+            while(game.board.isPositionValid(newPosition) && game.isPositionFree(newPosition)){
                 positions.push(newPosition);
                 newPosition = newPosition.addX(moves[x]).addY(moves[y]);
             }

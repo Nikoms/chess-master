@@ -31,5 +31,18 @@ describe('Bishop', function () {
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(bishop);
         });
 
+        it('The bishop is blocked by other pieces while moving', function () {
+            var moveRepresentation = [
+                '########',
+                '######P#',
+                '#####X##',
+                'X###X###',
+                '#X#X####',
+                '##0#####',
+                '#X#P####',
+                'P#######'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(bishop);
+        });
+
     });
 });
