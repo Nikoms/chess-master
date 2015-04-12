@@ -71,37 +71,24 @@ BoardMoveTester.prototype.convertHeightToPosition = function (height) {
 };
 
 BoardMoveTester.prototype.getMasterPiecePosition = function () {
-    for (var height = 0; height < this.height; height++) {
-        for (var width = 0; width < this.width; width++) {
-            var currentCharacter = this.movesRepresentation[height][width];
-            if (currentCharacter === '0') {
-                return new Position(width, this.convertHeightToPosition(height));
-            }
-        }
-    }
-    return null;
+    return this.getRepresentationCharacterPositions('0').pop();
 };
 
 BoardMoveTester.prototype.getPossibleMoves = function () {
-    var possibleMoves = [];
-    for (var height = 0; height < this.height; height++) {
-        for (var width = 0; width < this.width; width++) {
-            var currentCharacter = this.movesRepresentation[height][width];
-            if (currentCharacter === 'X') {
-                possibleMoves.push(new Position(width, this.convertHeightToPosition(height)));
-            }
-        }
-    }
-    return possibleMoves;
+    return this.getRepresentationCharacterPositions('X');
 };
 
 
 BoardMoveTester.prototype.getOtherPiecesPositions = function () {
+    return this.getRepresentationCharacterPositions('P');
+};
+
+BoardMoveTester.prototype.getRepresentationCharacterPositions = function(character){
     var positions = [];
     for (var height = 0; height < this.height; height++) {
         for (var width = 0; width < this.width; width++) {
             var currentCharacter = this.movesRepresentation[height][width];
-            if (currentCharacter === 'P') {
+            if (currentCharacter === character) {
                 positions.push(new Position(width, this.convertHeightToPosition(height)));
             }
         }
