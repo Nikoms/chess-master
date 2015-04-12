@@ -13,5 +13,15 @@ describe('Rook', function () {
                 '##X##'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(rook);
         });
+
+        it('The rook is blocked by other pieces', function () {
+            var moveRepresentation = [
+                '##X##',
+                '##X##',
+                'xP0XP',
+                '##P##',
+                '#####'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(rook);
+        });
     });
 });
