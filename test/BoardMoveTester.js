@@ -3,7 +3,7 @@ var Position = require('../src/Position');
 var assert = require("assert");
 var Board = require('../src/Board.js');
 var Game = require('../src/Game.js');
-var Pawn = require('../src/Move/Pawn.js');
+var Piece = require('../src/Piece.js');
 //Example: X = possible move, 0 = current position, # = free position
 //var movesRepresentation = [
 //    'X###X',
@@ -104,7 +104,7 @@ BoardMoveTester.prototype.getGame = function () {
     var game = new Game(new Board(this.getPositionRange()));
     var otherPiecesPositions = this.getOtherPiecesPositions();
     for (var i = 0; i < otherPiecesPositions.length; i++) {
-        game.addPiece(otherPiecesPositions[i], new Pawn());
+        game.addPiece(otherPiecesPositions[i], new Piece());
     }
     return game;
 };
