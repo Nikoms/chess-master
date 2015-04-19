@@ -27,7 +27,7 @@ describe('Queen', function () {
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(queen);
         });
 
-        it('The queen is blocked by other pieces.', function () {
+        it('The queen is blocked by other pieces with the same color.', function () {
 
             var moveRepresentation = [
                 'X###X',
@@ -35,6 +35,17 @@ describe('Queen', function () {
                 'XX0W#',
                 '#XXX#',
                 'X#X#W'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(queen);
+        });
+
+        it('The queen can take enemy\'s pieces.', function () {
+
+            var moveRepresentation = [
+                'X###X',
+                '#XBX#',
+                'XX0B#',
+                '#XXX#',
+                'X#X#B'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(queen);
         });
 
