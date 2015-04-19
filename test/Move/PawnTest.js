@@ -1,8 +1,9 @@
 var Pawn = require('../../src/Move/Pawn.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
+var Piece = require('../../src/Piece');
 
 describe('Pawn', function () {
-    var pawn = new Pawn();
+    var pawn = new Pawn(Piece.WHITE);
 
     describe('#getPossibleMoves', function () {
         it('The pawn can go one step around', function () {
@@ -29,10 +30,19 @@ describe('Pawn', function () {
                 '###'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
         });
-        it('The pawn is blocked by other pieces', function () {
+        it('The pawn is blocked by partner piece', function () {
             var moveRepresentation = [
                 '#####',
                 '##W##',
+                '##0##',
+                '#####',
+                '#####'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
+        });
+        it('The pawn is not blocked by an enemy piece', function () {
+            var moveRepresentation = [
+                '#####',
+                '##B##',
                 '##0##',
                 '#####',
                 '#####'];
