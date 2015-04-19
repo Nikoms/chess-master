@@ -36,6 +36,8 @@ up : black
 
 * Basic moves
 * A piece (except the knight) stops before another piece
+* A piece has a color
+* A piece can take an enemy piece
 
 ###
 * N = kNight
@@ -46,8 +48,6 @@ up : black
 
 ### Todo
 
-* A piece has a color
-* A piece can take an enemy piece
 * Position is Hx8 not 7x7
 * Double move at start for pawn
 * The castling
