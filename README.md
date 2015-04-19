@@ -39,7 +39,7 @@ up : black
 * A piece has a color
 * A piece can take an enemy piece
 
-###
+### Shortcuts
 * N = kNight
 * B = Bishop
 * R = Rook
@@ -48,6 +48,7 @@ up : black
 
 ### Todo
 
+* Black pawns move down
 * Position is Hx8 not 7x7
 * Double move at start for pawn
 * The castling
