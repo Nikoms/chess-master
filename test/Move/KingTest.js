@@ -1,8 +1,9 @@
 var King = require('../../src/Move/King.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
+var Piece = require('../../src/Piece');
 
 describe('King', function () {
-    var king = new King();
+    var king = new King(Piece.WHITE);
     describe('#getPossibleMoves', function () {
         it('The king can go one step around', function () {
 
@@ -46,13 +47,24 @@ describe('King', function () {
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
         });
 
-        it('The king is blocked by other pieces while moving', function () {
+        it('The king is stopped just before his "partners" pieces while moving', function () {
 
             var moveRepresentation = [
                 '#####',
                 '#XXW#',
                 '#X0W#',
                 '#WWX#',
+                '#####'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
+        });
+
+        it('The king can go to the same position as enemies (B means black piece and so a possible move)', function () {
+
+            var moveRepresentation = [
+                '#####',
+                '#XXB#',
+                '#X0B#',
+                '#BBX#',
                 '#####'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
         });
