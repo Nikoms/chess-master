@@ -1,7 +1,13 @@
 var Position = require('../Position.js');
+var Piece = require('../Piece');
+var util = require("util");
 
-function Rook() {
+function Rook(color) {
+    Piece.apply(this, arguments);
 }
+
+util.inherits(Rook, Piece);
+
 
 Rook.prototype.getPossibleMoves = function (game, currentPosition) {
     var positions = [], newPosition;
@@ -11,8 +17,15 @@ Rook.prototype.getPossibleMoves = function (game, currentPosition) {
     //Horizontal moves
     for (var x = 0; x < moves.length; x++) {
         newPosition = currentPosition.addX(moves[x]);
-        while (game.board.isPositionValid(newPosition) && game.isPositionFree(newPosition)) {
-            positions.push(newPosition);
+        while (game.board.isPositionValid(newPosition)) {
+            if(game.isPositionFree(newPosition)){
+                positions.push(newPosition);
+            }else{
+                if(game.getPiece(newPosition).getColor() !== this.getColor()){
+                    positions.push(newPosition);
+                }
+                break;
+            }
             newPosition = newPosition.addX(moves[x]);
         }
     }
@@ -20,8 +33,15 @@ Rook.prototype.getPossibleMoves = function (game, currentPosition) {
     //Vertical moves
     for (var y = 0; y < moves.length; y++) {
         newPosition = currentPosition.addY(moves[y]);
-        while (game.board.isPositionValid(newPosition) && game.isPositionFree(newPosition)) {
-            positions.push(newPosition);
+        while (game.board.isPositionValid(newPosition)) {
+            if(game.isPositionFree(newPosition)){
+                positions.push(newPosition);
+            }else{
+                if(game.getPiece(newPosition).getColor() !== this.getColor()){
+                    positions.push(newPosition);
+                }
+                break;
+            }
             newPosition = newPosition.addY(moves[y]);
         }
     }
