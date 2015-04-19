@@ -37,6 +37,12 @@ up : black
 * Basic moves
 * A piece (except the knight) stops before another piece
 
+###
+* N = kNight
+* B = Bishop
+* R = Rook
+* Q = Queen
+* K = King
 
 ### Todo
 
