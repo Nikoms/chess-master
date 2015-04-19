@@ -30,9 +30,9 @@ describe('Knight', function () {
 
             var moveRepresentation = [
                 '##X#X#',
-                '#XPPPX',
-                '##P0P#',
-                '#XPPPX',
+                '#XWWWX',
+                '##P0W#',
+                '#XWWWX',
                 '##X#X#'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(knight);
         });

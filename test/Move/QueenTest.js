@@ -30,10 +30,10 @@ describe('Queen', function () {
 
             var moveRepresentation = [
                 'X###X',
-                '#XPX#',
-                'XX0P#',
+                '#XWX#',
+                'XX0W#',
                 '#XXX#',
-                'X#X#P'];
+                'X#X#W'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(queen);
         });
 

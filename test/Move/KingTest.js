@@ -50,9 +50,9 @@ describe('King', function () {
 
             var moveRepresentation = [
                 '#####',
-                '#XXP#',
-                '#X0P#',
-                '#PPX#',
+                '#XXW#',
+                '#X0W#',
+                '#WWX#',
                 '#####'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(king);
         });

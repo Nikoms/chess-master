@@ -32,7 +32,7 @@ describe('Pawn', function () {
         it('The pawn is blocked by other pieces', function () {
             var moveRepresentation = [
                 '#####',
-                '##P##',
+                '##W##',
                 '##0##',
                 '#####',
                 '#####'];

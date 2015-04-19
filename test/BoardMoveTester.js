@@ -78,10 +78,10 @@ BoardMoveTester.prototype.getPossibleMoves = function () {
     return this.getRepresentationCharacterPositions('X');
 };
 
-
-BoardMoveTester.prototype.getOtherPiecesPositions = function () {
-    return this.getRepresentationCharacterPositions('P');
+BoardMoveTester.prototype.getWhitePiecesPositions = function () {
+    return this.getRepresentationCharacterPositions('W');
 };
+
 
 BoardMoveTester.prototype.getRepresentationCharacterPositions = function(character){
     var positions = [];
@@ -102,9 +102,9 @@ BoardMoveTester.prototype.getPositionRange = function () {
 
 BoardMoveTester.prototype.getGame = function () {
     var game = new Game(new Board(this.getPositionRange()));
-    var otherPiecesPositions = this.getOtherPiecesPositions();
-    for (var i = 0; i < otherPiecesPositions.length; i++) {
-        game.addPiece(otherPiecesPositions[i], new Piece());
+    var whitePiecesPositions = this.getWhitePiecesPositions();
+    for (var i = 0; i < whitePiecesPositions.length; i++) {
+        game.addPiece(whitePiecesPositions[i], new Piece(Piece.WHITE));
     }
     return game;
 };

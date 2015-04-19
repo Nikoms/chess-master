@@ -18,8 +18,8 @@ describe('Rook', function () {
             var moveRepresentation = [
                 '##X##',
                 '##X##',
-                'xP0XP',
-                '##P##',
+                '#W0XW',
+                '##W##',
                 '#####'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(rook);
         });

@@ -9,7 +9,7 @@ var InvalidPositionError = require('../src/Error/InvalidPositionError');
 
 describe('Game', function () {
     var board = new Board(new PositionRange(new Position(0, 0), new Position(7, 7)));
-    var piece = new Piece('King', 'White');
+    var piece = new Piece(Piece.WHITE);
     describe('#addPiece', function () {
         var game = new Game(board);
         it('should return true if there is no piece on position', function () {
