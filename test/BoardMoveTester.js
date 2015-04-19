@@ -75,11 +75,15 @@ BoardMoveTester.prototype.getMasterPiecePosition = function () {
 };
 
 BoardMoveTester.prototype.getPossibleMoves = function () {
-    return this.getRepresentationCharacterPositions('X');
+    return this.getRepresentationCharacterPositions('X').concat(this.getBlackPiecesPositions());
 };
 
 BoardMoveTester.prototype.getWhitePiecesPositions = function () {
     return this.getRepresentationCharacterPositions('W');
+};
+
+BoardMoveTester.prototype.getBlackPiecesPositions = function () {
+    return this.getRepresentationCharacterPositions('B');
 };
 
 
@@ -101,10 +105,15 @@ BoardMoveTester.prototype.getPositionRange = function () {
 };
 
 BoardMoveTester.prototype.getGame = function () {
+    var i;
     var game = new Game(new Board(this.getPositionRange()));
     var whitePiecesPositions = this.getWhitePiecesPositions();
-    for (var i = 0; i < whitePiecesPositions.length; i++) {
+    for (i = 0; i < whitePiecesPositions.length; i++) {
         game.addPiece(whitePiecesPositions[i], new Piece(Piece.WHITE));
+    }
+    var blackPiecesPositions = this.getBlackPiecesPositions();
+    for (i = 0; i < blackPiecesPositions.length; i++) {
+        game.addPiece(blackPiecesPositions[i], new Piece(Piece.BLACK));
     }
     return game;
 };

@@ -1,8 +1,9 @@
 var Bishop = require('../../src/Move/Bishop.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
+var Piece = require('../../src/Piece');
 
 describe('Bishop', function () {
-    var bishop = new Bishop();
+    var bishop = new Bishop(Piece.WHITE);
 
     describe('#getPossibleMoves', function () {
         it('The bishop has no restrictions in distance for each move, but is limited to diagonal movement', function () {
@@ -31,7 +32,7 @@ describe('Bishop', function () {
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(bishop);
         });
 
-        it('The bishop is blocked by other pieces while moving', function () {
+        it('The bishop is stopped just before his "partners" pieces while moving', function () {
             var moveRepresentation = [
                 '########',
                 '######W#',
@@ -41,6 +42,19 @@ describe('Bishop', function () {
                 '##0#####',
                 '#X#W####',
                 'W#######'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(bishop);
+        });
+
+        it('The bishop can go to the same position as enemies (B means black piece and so a possible move)', function () {
+            var moveRepresentation = [
+                '########',
+                '######B#',
+                '#####X##',
+                'X###X###',
+                '#X#X####',
+                '##0#####',
+                '#X#B####',
+                'B#######'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(bishop);
         });
 

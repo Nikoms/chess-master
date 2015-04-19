@@ -1,8 +1,9 @@
 var Queen = require('../../src/Move/Queen.js');
 var BoardMoveTester = require('../BoardMoveTester.js');
+var Piece = require('../../src/Piece');
 
 describe('Queen', function () {
-    var queen = new Queen();
+    var queen = new Queen(Piece.WHITE);
 
     describe('#getPossibleMoves', function () {
         it('The queen has bishop and rook moves.', function () {

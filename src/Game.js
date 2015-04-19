@@ -21,4 +21,8 @@ Game.prototype.isPositionFree = function(position){
     return ! (position in this.pieces);
 };
 
+Game.prototype.getPiece = function(position){
+    return this.pieces[position];
+};
+
 module.exports = Game;
