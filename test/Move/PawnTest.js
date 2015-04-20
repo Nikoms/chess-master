@@ -48,5 +48,16 @@ describe('Pawn', function () {
                 '#####'];
             new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
         });
+
+        it('The black pawn moves down', function () {
+            var pawn = new Pawn(Piece.BLACK);
+            var moveRepresentation = [
+                '#####',
+                '##0#',
+                '##X##',
+                '#####',
+                '#####'];
+            new BoardMoveTester(moveRepresentation).assertPossibleMoves(pawn);
+        });
     });
 });

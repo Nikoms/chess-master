@@ -38,6 +38,7 @@ up : black
 * A piece (except the knight) stops before another piece
 * A piece has a color
 * A piece can take an enemy piece
+* Black pawns move down
 
 ### Shortcuts
 * N = kNight
@@ -48,7 +49,6 @@ up : black
 
 ### Todo
 
-* Black pawns move down
 * Position is Hx8 not 7x7
 * Double move at start for pawn
 * The castling
